@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật Cô Thư</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            light: '#FFEFA6',
+                            DEFAULT: '#E5C158',
+                            dark: '#9E7B1C',
+                        },
+                        rosebg: '#1C1215',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at center, #2c1d24 0%, #130a0e 100%);
+            color: #F3EFEA;
+            overflow-x: hidden;
+        }
+        .serif-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #FFF5C0 0%, #E5C158 50%, #B89028 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(30, 18, 24, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(229, 193, 88, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(229, 193, 88, 0.1);
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col justify-center items-center relative selection:bg-gold/30 selection:text-gold-light p-4">
+
+    <!-- Canvas for Spectacular Fireworks & Sparkles -->
+    <canvas id="fx-canvas" class="fixed inset-0 pointer-events-none z-10"></canvas>
+
+    <!-- Ambient background glow -->
+    <div class="fixed w-[60vw] h-[60vw] rounded-full bg-gold/5 blur-[140px] pointer-events-none"></div>
+
+    <!-- Main Container -->
+    <main class="relative z-20 max-w-lg w-full">
+        
+        <!-- Opening Screen / Envelope Click -->
+        <div id="intro-screen" class="glass-card rounded-3xl p-8 sm:p-10 text-center transition-all duration-700 transform">
+            <div class="inline-flex p-4 rounded-full bg-gold/15 border border-gold/40 text-gold mb-6 animate-pulse shadow-lg">
+                <i class="fa-solid fa-gift text-3xl"></i>
+            </div>
+            <span class="text-xs uppercase tracking-[0.3em] text-gold font-medium block mb-2">Đặc biệt gửi tặng</span>
+            <h1 class="serif-font text-4xl sm:text-5xl font-bold gold-gradient mb-4">Cô Thư Thân Thương</h1>
+            <p class="text-gray-300 text-sm font-light mb-8 leading-relaxed">
+                Một món quà nhỏ đong đầy tình cảm, sự kính trọng và những lời chúc tốt đẹp nhất dành riêng cho Cô.
+            </p>
+            <button onclick="openCard()" class="w-full py-4 rounded-full bg-gradient-to-r from-gold-dark via-gold to-gold-light text-rosebg font-semibold text-sm tracking-wider uppercase shadow-xl hover:scale-105 transition-all duration-300">
+                <span>Mở Thiệp Chúc Mừng</span> <i class="fa-solid fa-heart ml-2"></i>
+            </button>
+        </div>
+
+        <!-- Greeting Card Content (Hidden initially) -->
+        <div id="card-content" class="glass-card rounded-3xl p-6 sm:p-10 opacity-0 translate-y-8 hidden transition-all duration-1000 relative">
+            
+            <!-- Card Header -->
+            <div class="text-center border-b border-gold/20 pb-6 mb-6">
+                <span class="text-xs uppercase tracking-[0.4em] text-gold font-medium block mb-1">Happy Birthday</span>
+                <h2 class="serif-font text-3xl sm:text-4xl font-bold gold-gradient">Cô Thư Yêu Quý</h2>
+            </div>
+
+            <!-- Concise & Warm Message -->
+            <div class="space-y-4 text-gray-200 text-base font-light leading-relaxed">
+                <p>
+                    Chúc mừng sinh nhật Cô! Dù 2 năm trôi qua kể từ lớp học tiếng Anh ngày trước, và giờ Cô đang tất bật với con đường tiến sĩ đầy thử thách, tình cảm và sự ấm áp Cô dành cho em vẫn luôn nguyên vẹn.
+                </p>
+                <p>
+                    Em vô cùng biết ơn vì có một người cô, một người bạn lớn luôn quan tâm, chăm chút cho em từng miếng ăn, giấc ngủ đến cả tinh thần những lúc chênh vênh.
+                </p>
+                <p class="text-gold font-medium italic text-center pt-2">
+                    "Mong tuổi mới Cô luôn bình an, rạng rỡ, sớm hoàn thành học vị tiến sĩ và lúc nào cũng hạnh phúc bên những điều cô yêu!"
+                </p>
+            </div>
+
+            <!-- Card Signature -->
+            <div class="mt-8 pt-6 border-t border-gold/20 flex items-center justify-between">
+                <span class="text-xs uppercase tracking-widest text-gold/80">Từ học trò nhỏ của Cô</span>
+                <span class="serif-font text-2xl font-bold gold-gradient">Thương mến ❤️</span>
+            </div>
+
+            <!-- Replay / Action Buttons -->
+            <div class="mt-6 flex items-center justify-center gap-3">
+                <button onclick="triggerGrandFireworks()" class="px-4 py-2 rounded-full bg-gold/15 hover:bg-gold/25 text-gold border border-gold/30 text-xs font-medium transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Pháo Hoa Hoành Tráng
+                </button>
+                <button onclick="resetCard()" class="px-4 py-2 rounded-full bg-transparent hover:bg-white/5 text-gray-400 text-xs transition-all">
+                    <i class="fa-solid fa-rotate-left mr-1">⁠</i> Xem Lại
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Script Logic: Spectacular Fireworks & Sparkles -->
+    <script>
+        const canvas = document.getElementById('fx-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        let sparkles = [];
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Sparkles generator
+        for (let i = 0; i < 70; i++) {
+            sparkles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                size: Math.random() * 2.5 + 0.5,
+                speedX: (Math.random() - 0.5) * 0.4,
+                speedY: (Math.random() - 0.5) * 0.4,
+                opacity: Math.random()
+            });
+        }
+
+        class Particle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 8 + 2;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                this.alpha = 1;
+                this.decay = Math.random() * 0.012 + 0.008;
+                this.size = Math.random() * 3.5 + 1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vy += 0.06; // gravity
+                this.alpha -= this.decay;
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, this.alpha);
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function createFirework(x, y) {
+            const colors = ['#E5C158', '#FFF5C0', '#FFD700', '#FFA500', '#FF69B4', '#DA70D6'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            for (let i = 0; i < 90; i++) {
+                particles.push(new Particle(x, y, color));
+            }
+        }
+
+        function animateFX() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw sparkles
+            ctx.fillStyle = '#FFF5C0';
+            sparkles.forEach(s => {
+                s.x += s.speedX;
+                s.y += s.speedY;
+                if (s.x < 0) s.x = width;
+                if (s.x > width) s.x = 0;
+                if (s.y < 0) s.y = height;
+                if (s.y > height) s.y = 0;
+
+                ctx.globalAlpha = Math.abs(Math.sin(Date.now() * 0.001 * s.opacity));
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            // Draw fireworks
+            for (let i = particles.length - 1; i >= 0; i--) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].alpha <= 0) {
+                    particles.splice(i, 1);
+                }
+            }
+            requestAnimationFrame(animateFX);
+        }
+        animateFX();
+
+        // Periodic grand fireworks when card is open
+        setInterval(() => {
+            if (!document.getElementById('card-content').classList.contains('hidden')) {
+                createFirework(Math.random() * width * 0.8 + width * 0.1, Math.random() * height * 0.5 + height * 0.1);
+            }
+        }, 3500);
+
+        function openCard() {
+            const intro = document.getElementById('intro-screen');
+            const card = document.getElementById('card-content');
+            
+            intro.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+            setTimeout(() => {
+                intro.classList.add('hidden');
+                card.classList.remove('hidden');
+                setTimeout(() => {
+                    card.classList.remove('opacity-0', 'translate-y-8');
+                    // Grand opening burst
+                    createFirework(width * 0.5, height * 0.3);
+                    createFirework(width * 0.3, height * 0.45);
+                    createFirework(width * 0.7, height * 0.45);
+                }, 50);
+            }, 500);
+        }
+
+        function resetCard() {
+            const intro = document.getElementById('intro-screen');
+            const card = document.getElementById('card-content');
+
+            card.classList.add('opacity-0', 'translate-y-8');
+            setTimeout(() => {
+                card.classList.add('hidden');
+                intro.classList.remove('hidden');
+                setTimeout(() => {
+                    intro.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                }, 50);
+            }, 500);
+        }
+
+        function triggerGrandFireworks() {
+            createFirework(width * 0.5, height * 0.3);
+            createFirework(width * 0.25, height * 0.4);
+            createFirework(width * 0.75, height * 0.4);
+            createFirework(width * 0.4, height * 0.55);
+            createFirework(width * 0.6, height * 0.55);
+        }
+    </script>
+</body>
+</html>
